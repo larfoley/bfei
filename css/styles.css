@@ -1,0 +1,89 @@
+@media screen and (max-width: 500px) {
+	body {
+		font-size: .8em;
+	}
+}
+
+body {
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 500px;
+	margin: 5em auto;
+}
+
+header  {
+	background: #2e2e2e;
+	padding: 5em 5%;
+	color: white;
+}
+
+header h1 {
+	font-size: 2.3em;
+	margin: 0;
+	margin-bottom: .3em;
+	text-transform: uppercase;
+}
+
+header p {
+	font-size: 1.5em;
+	margin: 0;
+	color: lightgray;
+}
+
+#btn {
+	border: none;
+	outline: none;
+	font-size: 1.5em;
+	border-radius: 5px;
+	background: #2e2e2e;
+	color: white;
+	text-transform: uppercase;
+	box-shadow: 5px 5px 5px #ccc;
+}
+
+#btn:hover {
+	cursor: pointer;
+	background: black;
+}
+
+#btn a {
+	text-decoration: none;
+	display: inline-block;
+	padding: 1em 2em;
+}
+
+#btn a:link, #btn a:visited, #btn a:active {
+	color: white;
+}
+
+#btn a:active {
+	box-shadow: 0;
+	color: #ccc;
+}
+#h2 {
+	margin: 2.5em 0 1em 0;
+	font-size: 2em;
+	/*border-bottom: 1px solid #ccc;*/
+	/*padding-bottom: 1em; */
+}
+
+#ul {
+	margin: 0;
+	padding: 0;
+
+}
+
+#ul li {
+	list-style: none;
+	font-size: 1.6em;
+	color: gray;
+	font-weight: bold;
+	margin: .5em 0;
+	/*padding: .5em 0;*/
+	border-radius: 5px;
+}
