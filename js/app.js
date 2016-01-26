@@ -26,144 +26,124 @@ function time(){
 	return t;
 }
 
-function findFreeRooms(free) {
-	var freeRooms = [];
-	var free_periods;
+function findFreeRooms(atTime) {
 
-	//search rooms
+	var freeRooms = [];
+	var freePeriods = [];
+	var freeRoomIndex = 0;
+	var searchTime;
+
+	if (atTime !== undefined | atTime !== "") {
+		//Set the searchTime var to a specified time
+		searchTime = atTime;
+	} else {
+		searchTime = time();
+	}
+
+	//search the rooms
 	for (var i = 0; i < rooms.length; i++) {
 		console.log("Checking Room " + rooms[i].name )
 		for (var j = 0; j < rooms[i].timetables.length; j++) {
-			//Check timetables		
+			//Check todays timetable
 			if (today() === rooms[i].timetables[j].day) {
+				// Find out what periods are free
 				for (var k = 0; k < rooms[i].timetables[j].free_periods.length; k++) {
 					if (
-						time() >= rooms[i].timetables[j].free_periods[k].start &&
-						time() <= rooms[i].timetables[j].free_periods[k].finnish
-						) { 
-						freeRooms.push(rooms[i]);
-						free_period = rooms[i].timetables[j].free_periods[k];
+						searchTime >= rooms[i].timetables[j].free_periods[k].start &&
+						searchTime <= rooms[i].timetables[j].free_periods[k].finnish
+						) {
+						// Push
+						freeRooms[freeRoomIndex] = {};
+						freeRooms[freeRoomIndex].name = rooms[i].name;
+						freeRooms[freeRoomIndex].freeUntil = convertTime(rooms[i].timetables[j].free_periods[k].finnish);
+						freeRoomIndex++;
+						//freePeriods.push(rooms[i].timetables[j].free_periods[k]);
 					}
 				};
 			};	
 		};
 	}
-	if (free === "period") {
-		return free_period
-	} else {
-		return freeRooms;
+	// This function takes a numered format and converts it to time string
+	function convertTime(time) {
+		/*var timePeriod;
+		if (timePeriod >= 1300) {
+			timePeriod = " PM"
+		} else timePeriod = " AM";*/
+
+ 		var time = time.toString();
+		strArray = time.split("");
+		newString = "";
+		for (var i = 0; i < strArray.length; i++) {
+			if ( i === strArray.length - 2) {
+				newString += ":";
+			}
+			newString += strArray[i]
+		};
+
+		//newString += timePeriod;
+
+		return newString;
 	}
-	
+	console.log(freeRooms)
+	return freeRooms;
 }
-
-function createListItems(x) {
-	var els = [];
-	for (var i = 0; i < x; i++) {
-		els.push(document.createElement("li"));
-	};
-	return els;	
-}
-
-function updateListItems() {
-	var freeRooms = findFreeRooms();
-
-	for (var i = 0; i < freeRooms[0].timetables.length; i++) {
-		if (freeRooms[0].timetables[i].day === today()) {
-			for (var i = 0; i < freeRooms[0].timetables[i].free_periods.length; i++) {
-		
-			};
-		}
-	};
-	
-	var els = createListItems(freeRooms.length);
-	for (var i = 0; i < els.length; i++) {
-		els[i].innerText = freeRooms[i].name;
-	};
-	return els;
-}
-
-function setMode(mode) {
-	var bool = false;
-	if (localStorage.getItem("mode") === null) {
-		alert("empty cache; setting mode to default");
-		localStorage.setItem("mode", "default");
-		return "default";
-	}
-	function changeMode(mode) {
-		localStorage.setItem("mode", mode)
-	}
-	document.body.onclick = function() {
-		var mode;
-		if (bool) {
-			mode = "auto"
-			bool = false;
-		} else {
-			mode = "default"
-			bool = true;
-		}
-		changeMode(mode);
-		alert("mode has been changed to " + mode)
-
-	}
-
-}
-
-function renderHTML() {
-	if (true/*isScoolOpen()*/) {
-		//Create html and upadte 
-		if (findFreeRooms().length > 0) {
-			document.getElementById('h2').innerText = "The Following Rooms are Free";
-			for (var i = 0; i < updateListItems().length; i++) {
-				document.getElementById('ul').appendChild(updateListItems()[i]);
-			};
-		} else {
-			document.getElementById('h2').innerText = "No free rooms avilable :(";
-		}
-	} else {
-		document.getElementById('h2').innerText = "School is closed";
-	}	
-};
-
+// Serachs for free rooms and appends them to the document
+// pass the time paramater a value for a specific time 
 function init() {
-	if (localStorage.getItem("mode") === "default") {
-		renderHTML();
-	} else if (localStorage.getItem("mode") === "auto") {
-		//autoMode();
+	// 
+	var searchTime;
+	// Clear the Serach Results
+	document.getElementById("ul").innerHTML = "";
+	document.getElementById("h2").innerHTML = "";
+	//Check which option is used
+	if (document.getElementById("now").checked === "checked") {
+		alert(this);
+		searchTime = time();
 	} else {
-		//findFreeRooms();
-		document.getElementById("btn").onclick = renderHTML();
+		var selectedTime;
+		// Get Selceted elements values
+		// iterate through the select options and get the selected one
+		searchTime = selectedTime;
 	}
+	var freeRooms = findFreeRooms(later);
+
+	function createListItems(x) {
+		var els = [];
+		for (var i = 0; i < x; i++) {
+			els.push(document.createElement("li"));
+		};
+		return els;	
+	}
+
+	function updateListItems() {
+		var els = createListItems(freeRooms.length);
+		for (var i = 0; i < els.length; i++) {
+			els[i].innerHTML = "<strong>" + freeRooms[i].name + "</strong>" + " is free until " + "<strong>" + freeRooms[i].freeUntil + "</strong>" ;
+		};
+		return els;
+	}
+
+
+	function renderHTML() {
+		if (true/*isScoolOpen()*/) {
+			if (freeRooms.length > 0) {
+				document.getElementById('h2').innerText = "The Following Rooms are Free";
+				for (var i = 0; i < updateListItems().length; i++) {
+					document.getElementById('ul').appendChild(updateListItems()[i]);
+				};
+			} else {
+				document.getElementById('h2').innerText = "No free rooms available :(";
+			}
+		} else {
+			document.getElementById('h2').innerText = "School is closed";
+		}
+		
+	};
+
+	setTimeout(function(){
+		renderHTML();
+	}, 500)
+
 }
 
-init();
-
-document.getElementById("btn").onclick = renderHTML;
-
-
-
-function convertTimeFormat(time) {
-	var newTime;
-	time = time.toString()
-
-	newTime = time.charAt(0);
-	newTime += time.charAt(1);
-	newTime += ":";
-	newTime += time.charAt(2);
-	newTime += time.charAt(3)
-	newTime += " PM"
-	return newTime
-}
-
-
-window.onbeforeunload = function (e) {
-  var e = e || window.event;
-  var message = "You have not finnished the Quiz."
-  //IE & Firefox
-  if (e) {
-    e.returnValue = message;
-  }
-
-  // For Safari
-  return message;
-};
-console.log(convertTimeFormat(1890));
+document.getElementById("btn").onclick = init;

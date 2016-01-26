@@ -1,3 +1,6 @@
+/*
+	opal
+*/
 @media screen and (max-width: 500px) {
 	body {
 		font-size: .8em;
@@ -10,18 +13,24 @@ body {
 	margin: 0;
 }
 
-.wrapper {
+.app_wrapper {
 	width: 90%;
-	max-width: 500px;
-	margin: 5em auto;
+	max-width: 600px;
+	margin: 3em auto;
+}
+
+.section {
+	margin-top: 3em;
 }
 
 header  {
-	background: #2e2e2e;
+	background: #a2c4c9	;
 	padding: 5em 5%;
 	color: white;
 }
-
+h2 {
+	text-transform: uppercase;
+}
 header h1 {
 	font-size: 2.3em;
 	margin: 0;
@@ -32,18 +41,19 @@ header h1 {
 header p {
 	font-size: 1.5em;
 	margin: 0;
-	color: lightgray;
+	color: ;
 }
 
 #btn {
 	border: none;
 	outline: none;
-	font-size: 1.5em;
+	font-size: 1em;
 	border-radius: 5px;
-	background: #2e2e2e;
+	background: #a2c4c9;
 	color: white;
 	text-transform: uppercase;
-	box-shadow: 5px 5px 5px #ccc;
+	box-shadow: 4px 4px 4px #ccc;
+	min-width: 200px;
 }
 
 #btn:hover {
@@ -65,12 +75,6 @@ header p {
 	box-shadow: 0;
 	color: #ccc;
 }
-#h2 {
-	margin: 2.5em 0 1em 0;
-	font-size: 2em;
-	/*border-bottom: 1px solid #ccc;*/
-	/*padding-bottom: 1em; */
-}
 
 #ul {
 	margin: 0;
@@ -82,8 +86,15 @@ header p {
 	list-style: none;
 	font-size: 1.6em;
 	color: gray;
-	font-weight: bold;
 	margin: .5em 0;
 	/*padding: .5em 0;*/
 	border-radius: 5px;
+}
+
+.hide {
+	display: none;
+}
+
+#later:checked ~ select {
+	display: inline-block;
 }

@@ -1,14 +1,72 @@
 var rooms = [
+{
+		name: "Room 104 ( Beauty Room )",
+		timetables: [
+			{
+				day: "Monday",
+				free_periods: [
+					{
+						start: 850,
+						finnish: 950,
+					},
+					{
+						start: 1700,
+						finnish: 1800,
+					},
+				],
+			},
+			{
+				day: "Tuesday",
+				free_periods: [
+					{
+						start: 1600,
+						finnish: 1800,
+					},
+				],
+			},
+			{
+				day: "Wednesday",
+				free_periods: [
+					{
+						start: 850,
+						finnish: 950,
+					},
+					{
+						start: 1700,
+						finnish: 1800,
+					},
+				],
+			},
+			{
+				day: "Thursday",
+				free_periods: [
+					{
+						start: 1700,
+						finnish: 1800,
+					},
+				],
+			},
+			{
+				day: "Friday",
+				free_periods: [
+					{
+						start: 1500,
+						finnish: 1800,
+					},
+				],
+			},
+		],
+	},
+
 	{
-		name: "Room 105",
-		hasComputers: false,
+		name: "Room 105 ( Classroom )",
 		timetables: [
 			{
 				day: "Monday",
 				free_periods: [
 					{
 						start: 1700,
-						finnish: 2400,
+						finnish: 1800,
 					},
 				],
 			},
@@ -60,7 +118,7 @@ var rooms = [
 	},
 
 	{
-		name: "Room 106 - Beauty Room",
+		name: "Room 106( Beauty Room )",
 		hasComputers: false,
 		timetables: [
 			{
@@ -120,7 +178,7 @@ var rooms = [
 	},
 
 	{
-		name: "Room 107 - Classroom",
+		name: "Room 107 ( Classroom )",
 		hasComputers: false,
 		timetables: [
 			{
@@ -192,7 +250,7 @@ var rooms = [
 	},
 
 	{
-		name: "Room 108 - Computer Room",
+		name: "Room 108 ( Computer Room )",
 		hasComputers: true,
 		timetables: [
 			{
@@ -248,7 +306,7 @@ var rooms = [
 	},
 
 	{
-		name: "Room 109 - Computer Room",
+		name: "Room 109 ( Computer Room )",
 		hasComputers: true,
 		timetables: [
 			{
@@ -304,7 +362,7 @@ var rooms = [
 	},
 
 	{
-		name: "Room 112 - Boardroom",
+		name: "Room 112 ( Boardroom )",
 		hasComputers: true,
 		timetables: [
 			{
@@ -364,8 +422,8 @@ var rooms = [
 	},
 
 	{
-		name: "Room 114 - TM Room",
-		hasComputers: false,
+		name: "Room 114 ( TM Room )",
+		hasComputers: true,
 		timetables: [
 			{
 				day: "Monday",
@@ -1290,7 +1348,7 @@ var rooms = [
 		],
 	},
 	{
-		name: "Room B09 - Classroom",
+		name: "Room B09 ( Classroom )",
 		hasComputers: false,
 		timetables: [
 			{
@@ -1311,7 +1369,7 @@ var rooms = [
 				free_periods: [
 					{
 						start: 1200,
-						finnish: 1400
+						finnish: 1300
 					},
 					{
 						start: 1500,
