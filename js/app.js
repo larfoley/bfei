@@ -154,7 +154,7 @@ function init() {
 		};
 		
 	}
-	// 
+	// Delay html render
 	setTimeout(function(){
 		renderHTML();
 		scrollToResults();
