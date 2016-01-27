@@ -3,30 +3,38 @@
 		<meta charsset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 	</head>
 	<body>
 		<header class="app_header">
-			<h1>BFEI Free Room Finder</h1>
-			<p>2015 / 2016</p>
+			<h1 class="app_title">BFEI Free Room Finder</h1>
+			<p class="app_subtitle">2015 / 2016</p>
 		</header>
 		<div class="app_wrapper">
-			<h2>Search for a Free Room</h2>
 			<div class="section searchOption">
+				<h2>Search for a Free Room</h2>
 				<p class="field">
 					<input id="now" type="radio" name="option" value="male" checked>
-					<label for="now">Now</label>
+					<label id="now_label" for="now">Now</label>
 				</p>
 				<p class="field">
 					<input id="later" type="radio" name="option" value="female">
-					<label for="later">Later</label>
-					<select name="select" class="hide">
-  				<option value="8:00 am">8:00 AM</option> 
-  				<option value="9:00 am" selected>9:00 AM</option>
-  				<option value="10:00 am">10:00 AM</option>
-				</select>
+					<label id="later_label" for="later">Later</label>
+					<select class="timeSelect hide" name="select">
+	  				<option value="800" selected>8:00 AM</option> 
+	  				<option value="900" >9:00 AM</option>
+	  				<option value="1000">10:00 AM</option>
+	  				<option value="1100">11:00 AM</option>
+	  				<option value="1200">12:00 AM</option>
+	  				<option value="1300">1:00 PM</option>
+	  				<option value="1400">2:00 PM</option>
+	  				<option value="1500">3:00 PM</option>
+	  				<option value="1600">4:00 PM</option>
+	  				<option value="1700">5:00 PM</option>
+	  				<option value="1800">6:00 PM</option>
+					</select>
 				</p>
 			</div>
 			<button id="btn"><a href="#h2">Search</a></button>
