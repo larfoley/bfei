@@ -40,7 +40,7 @@ function findFreeRooms(atTime) {
 		// Set the searchTime var to the current time
 		searchTime = time();
 	}
-
+	console.log(searchTime);
 	//search the rooms
 	for (var i = 0; i < rooms.length; i++) {
 		//console.log("Checking Room " + rooms[i].name )
@@ -51,7 +51,7 @@ function findFreeRooms(atTime) {
 				for (var k = 0; k < rooms[i].timetables[j].free_periods.length; k++) {
 					if (
 						searchTime >= rooms[i].timetables[j].free_periods[k].start &&
-						searchTime <= rooms[i].timetables[j].free_periods[k].finnish
+						searchTime < rooms[i].timetables[j].free_periods[k].finnish
 						) {
 						// Push object data of the free room
 						freeRooms[freeRoomIndex] = {};
