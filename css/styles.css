@@ -70,7 +70,7 @@ Modules
 	display: none;
 }
 
-#btn {
+#search {
 	border: none;
 	outline: none;
 	font-size: 1.2em;
@@ -83,26 +83,26 @@ Modules
 	margin-top: 2em;
 }
 
-#btn:hover {
+#search:hover {
 	cursor: pointer;
 	box-shadow: 4px 4px 4px #ccc;
 }
 
-#btn:active {
+#search:active {
 	box-shadow: 1px 1px 1px #ccc;
 }
 
-#btn a {
+#search a {
 	text-decoration: none;
 	display: inline-block;
 	padding: 1em 2em;
 }
 
-#btn a:link, #btn a:visited, #btn a:active {
+#search a:link, #search a:visited, #search a:active {
 	color: white;
 }
 
-#btn a:active {
+#search a:active {
 	box-shadow: 0;
 	color: #ccc;
 }
