@@ -40,7 +40,7 @@ function findFreeRooms(atTime) {
 		// Set the searchTime var to the current time
 		searchTime = time();
 	}
-	console.log(searchTime);
+	console.log(searchTime)
 	//search the rooms
 	for (var i = 0; i < rooms.length; i++) {
 		//console.log("Checking Room " + rooms[i].name )
@@ -162,4 +162,4 @@ function init() {
 
 }
 
-document.getElementById("btn").onclick = init;
+document.getElementById("search").onclick = init;
