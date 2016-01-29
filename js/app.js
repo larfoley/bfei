@@ -3,7 +3,7 @@ function today() {
 	var d = new Date();
 	return days[d.getDay()];
 }
-
+// Whats time is it ?
 function time(){
 	var d = new Date();
 	var hours = function() {
@@ -15,7 +15,6 @@ function time(){
 	};
 	var mins = function() {
 		var m = d.getMinutes();
-		//var m = 8;
 		if (m <= 9 ) {
 			m = 0 + "" + m;
 		}
